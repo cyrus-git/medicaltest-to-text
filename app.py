@@ -1,7 +1,9 @@
 import os
 import base64
+from pkg_resources import working_set
 
 import streamlit as st
+import streamlit.components.v1 as components
 import pandas as pd
 from pandas.core.frame import DataFrame
 
@@ -162,12 +164,18 @@ st.image('images/screenshot6.png')
 
 
 # コメント
-st.text('')
 st.write('***')
 st.write("""**Made by Cyrus ( <a href="https://cyrus.tokyo" target="_blank">HP</a> / <a href="https://twitter.com/cyrus_twi" target="_blank">Twitter</a> )**""", unsafe_allow_html=True)
 st.text('')
 st.write("""ご意見・エラー報告・改善案 等は <a href="https://cyrus.tokyo/contact" target="_blank">こちら</a> にお寄せください。""", unsafe_allow_html=True)
 st.write('※ 特にテンプレートの記載内容についてのご意見を募集しております')
 st.text('')
-st.write("""画面右上の「 ≡ 」からソースコードに飛べます。\n
+st.write("""画面右上の「 ≡ 」からこのページをシェアすることができます。\n
 ぜひSNSや同学年の人などにシェアしていただけると嬉しいです。""")
+st.text('')
+st.text('')
+st.text('')
+components.iframe(
+    "https://rcm-fe.amazon-adsystem.com/e/cm?o=9&p=48&l=ur1&category=amazonstudent&banner=00AVQHWA2Y5DEKYBK502&f=ifr&linkID=575c21202b1350137f3a4453d9612252&t=gondo238-22&tracking_id=gondo238-22",
+    width=728
+)
