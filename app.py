@@ -65,29 +65,32 @@ if which_zero == '420（「.0」を非表示）':
 
 
 # ツール
-st.text('')
-st.write('### ▼ テンプレート（Excelファイル）をダウンロードし、数値を入力')
-st.text('※事前のダウンロードをおすすめします※')
-st.markdown(get_binary_file_downloader_html('template.xlsx'), unsafe_allow_html=True)
-st.text('')
-st.write('### ▼ 数値を入力したExcelファイルをアップロード')
-uploaded_file = st.file_uploader(
-    'ファイルを選択',
-    type='xlsx'
-)
-if uploaded_file:
-    df = pd.read_excel(uploaded_file)
-    df = df.astype(str)
-    df = df.replace('nan', '')
-    if st.checkbox('ファイルの中身を表示'):
-        df_show = df
-        st.table(df_show)
+try:
     st.text('')
-    st.write('### ▼ 文字起こし（数値が空白の部分はスキップします）')
-    if st.button('文字起こし'):
-        st.write('#### 【出力結果】')
-        st.write('右上のアイコンからコピーできます')
-        st.code(df_to_text(df, separation_letter, space1, space2, delete_zero), language='text')
+    st.write('### ▼ テンプレート（Excelファイル）をダウンロードし、数値を入力')
+    st.text('※事前のダウンロードをおすすめします※')
+    st.markdown(get_binary_file_downloader_html('template.xlsx'), unsafe_allow_html=True)
+    st.text('')
+    st.write('### ▼ 数値を入力したExcelファイルをアップロード')
+    uploaded_file = st.file_uploader(
+        'ファイルを選択',
+        type='xlsx'
+    )
+    if uploaded_file:
+        df = pd.read_excel(uploaded_file)
+        df = df.astype(str)
+        df = df.replace('nan', '')
+        if st.checkbox('ファイルの中身を表示'):
+            df_show = df
+            st.table(df_show)
+        st.text('')
+        st.write('### ▼ 文字起こし（数値が空白の部分はスキップします）')
+        if st.button('文字起こし'):
+            st.write('#### 【出力結果】')
+            st.write('右上のアイコンからコピーできます')
+            st.code(df_to_text(df, separation_letter, space1, space2, delete_zero), language='text')
+except:
+    st.error('エラーが発生しました')
 
 
 # できること
@@ -99,10 +102,10 @@ st.write("""
 病院内等でインターネットに接続できない場合は、あらかじめExcelテンプレートをダウンロードしておくことをおすすめします。
 """)
 st.text('')
-st.image('screenshot2.png')
+st.image('images/screenshot2.png')
 st.text('')
 st.write('⬇ 変換')
-st.image('screenshot7.png')
+st.image('images/screenshot7.png')
 
 
 # 使い方
@@ -112,7 +115,7 @@ st.write('# 使い方')
 st.markdown('### ①テンプレート（Excelファイル）をダウンロードする')
 st.markdown(get_binary_file_downloader_html('template.xlsx'), unsafe_allow_html=True)
 st.write('ファイルの中身はこのようになっています。')
-st.image('screenshot1.png')
+st.image('images/screenshot1.png')
 st.text('')
 st.text('')
 st.text('')
@@ -122,18 +125,18 @@ st.write("""
 数値を入力してください。
 項目や単位の追加・変更にも対応しています。
 """)
-st.image('screenshot2.png')
+st.image('images/screenshot2.png')
 st.write('#### ↑↑↑オフライン作業ここまで↑↑↑')
 st.text('')
 st.text('')
 st.text('')
 st.write('### ③編集済みのExcelファイルをアップロードする')
-st.image('screenshot3.png')
+st.image('images/screenshot3.png')
 st.text('')
 st.text('')
 st.write('### （④ファイルの中身を確認する）')
 st.write('チェックを入れるとExcelファイルの中身を確認できます。チェックを外すと閉じます。')
-st.image('screenshot4.png')
+st.image('images/screenshot4.png')
 st.text('')
 st.text('')
 st.write('### ⑤文字起こしのオプションを設定する')
@@ -144,7 +147,7 @@ st.write("""
 - 数値末尾の「.0」を表示させるか\n
 を選択してください。
 """)
-st.image('screenshot5.png')
+st.image('images/screenshot5.png')
 st.text('')
 st.text('')
 st.write('### ⑥文字起こしを行う')
@@ -154,4 +157,13 @@ st.write("""
 Word等に「貼り付け（ペースト）」してご使用ください。\n
 出力をした後でも、オプションを変更して再出力することもできます。
 """)
-st.image('screenshot6.png')
+st.image('images/screenshot6.png')
+
+
+# コメント
+st.text('')
+st.write('***')
+st.write("""**Made by Cyrus ( <a href="https://cyrus.tokyo" target="_blank">HP</a> / <a href="https://twitter.com/cyrus_twi" target="_blank">Twitter</a> )**""", unsafe_allow_html=True)
+st.write("""ご意見・エラー報告・改善案 等は <a href="https://cyrus.tokyo/contact" target="_blank">こちら</a> にお寄せください。""", unsafe_allow_html=True)
+st.write('※ 特にテンプレートの記載内容についてのご意見を募集しております')
+st.write("""<a href="https://github.com/cyrus-git/medicaltest-to-text" target="_blank">source code in GitHub</a>""", unsafe_allow_html=True)
