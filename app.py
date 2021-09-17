@@ -39,8 +39,9 @@ def df_to_text(df:DataFrame, separation_letter:str, space1:str, space2:str, dele
         text = text.replace('\n\n\n\n', '\n\n')
     return text
 
-st.title('検査結果 文字起こしツール')
+st.set_page_config(page_title='検査結果 文字起こしツール')
 
+st.title('検査結果 文字起こしツール')
 
 # サイドバー
 st.sidebar.write('# オプション')
@@ -175,7 +176,10 @@ st.write("""画面右上の「 ≡ 」からこのページをシェアするこ
 st.text('')
 st.text('')
 st.text('')
-components.iframe(
-    "https://rcm-fe.amazon-adsystem.com/e/cm?o=9&p=48&l=ur1&category=amazonstudent&banner=00AVQHWA2Y5DEKYBK502&f=ifr&linkID=575c21202b1350137f3a4453d9612252&t=gondo238-22&tracking_id=gondo238-22",
-    width=728
+st.text('sponsored link')
+st.markdown("""
+    <a href="https://www.amazon.co.jp/studentawgateway/?tag=gondo238-22" target="_blank">
+        <img src="https://images-fe.ssl-images-amazon.com/images/G/09/JP-hq/2021/img/Prime/XCM_Manual_1353312_1791081_3998434_JP_assoc_728x90_ja_JP.jpg" />
+    </a>""",
+    unsafe_allow_html=True
 )
