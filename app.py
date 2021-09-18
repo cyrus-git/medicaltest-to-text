@@ -145,7 +145,8 @@ st.text('')
 st.text('')
 st.write('### ⑤文字起こしのオプションを設定する')
 st.write("""
-文字起こしする際のオプションを設定します。
+文字起こしする際のオプションを設定します。\n
+オプションが表示されない場合は、画面左上の「＞」を押してください。
 - 項目の区切りに「,」「、」どちらを使用するか
 - 項目、数値、単位の間にスペース（空白）を挿入するか
 - 数値末尾の「.0」を表示させるか\n
@@ -170,9 +171,6 @@ st.write("""**Made by Cyrus ( <a href="https://cyrus.tokyo" target="_blank">HP</
 st.text('')
 st.write("""ご意見・エラー報告・改善案 等は <a href="https://cyrus.tokyo/contact" target="_blank">こちら</a> にお寄せください。""", unsafe_allow_html=True)
 st.write('※ 特にテンプレートの記載内容についてのご意見を募集しております')
-st.text('')
-st.write("""画面右上の「 ≡ 」からこのページをシェアすることができます。\n
-ぜひSNSや同学年の人などにシェアしていただけると嬉しいです。""")
 st.text('')
 st.text('')
 st.text('')
