@@ -1,8 +1,8 @@
 import base64
 import os
-import re
 
 import streamlit as st
+import streamlit.components.v1 as components
 import pandas as pd
 from pandas.core.frame import DataFrame
 
@@ -40,7 +40,11 @@ def df_to_text(df:DataFrame, separation_letter:str, space1:str, space2:str, dele
         text = text.replace('\n\n\n\n', '\n\n')
     return text
 
-st.set_page_config(page_title='検査結果 文字起こしツール')
+st.set_page_config(
+    page_title='検査結果 文字起こしツール',
+    initial_sidebar_state='expanded'
+)
+
 
 st.title('検査結果 文字起こしツール')
 
@@ -170,11 +174,13 @@ st.image('images/screenshot6.png')
 st.write('***')
 st.write("""**Made by Cyrus ( <a href="https://cyrus.tokyo" target="_blank">HP</a> / <a href="https://twitter.com/cyrus_twi" target="_blank">Twitter</a> )**""", unsafe_allow_html=True)
 st.text('')
-st.write("""ご意見・エラー報告・改善案 等は <a href="https://cyrus.tokyo/contact" target="_blank">こちら</a> にお寄せください。""", unsafe_allow_html=True)
+st.write("""ご意見・エラー報告・改善案 等は <a href="https://cyrus.tokyo/contact" target="_blank">こちら</a> または Twitter にお寄せください。""", unsafe_allow_html=True)
 st.write('※ 特にテンプレートの記載内容についてのご意見を募集しております')
-st.text('')
-st.text('')
-st.text('')
+components.html(
+    """
+    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="検査結果 文字起こしツール" data-url="https://share.streamlit.io/cyrus-git/medicaltest-to-text/main/app.py" data-via="cyrus_twi" data-hashtags="streamlit" data-lang="ja" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    """
+)
 st.text('sponsored link')
 st.markdown("""
     <a href="https://www.amazon.co.jp/studentawgateway/?tag=gondo238-22" target="_blank">
@@ -182,3 +188,5 @@ st.markdown("""
     </a>""",
     unsafe_allow_html=True
 )
+
+
