@@ -1,9 +1,8 @@
-import os
 import base64
-from pkg_resources import working_set
+import os
+import re
 
 import streamlit as st
-import streamlit.components.v1 as components
 import pandas as pd
 from pandas.core.frame import DataFrame
 
@@ -29,11 +28,13 @@ def df_to_text(df:DataFrame, separation_letter:str, space1:str, space2:str, dele
                 num = row.数値.replace('.0', '')
             else:
                 num = row.数値
-            text_item = f'{row.検査項目}{space1}{num}{space2}{row.単位}'
+            unit = '%)' if row.検査項目 == 'Lymphocyte' else row.単位
+            text_item = f'{row.検査項目}{space1}{num}{space2}{unit}'
         text_list.append(text_item)
     while text_list[-1] == '\n\n':
         del text_list[-1]
     text = separation_letter.join(text_list)
+    text = text.replace(', Seg', ' (Seg').replace('、Seg', ' (Seg')
     text = text.replace(', \n\n, ', '\n\n').replace('、\n\n、', '\n\n')
     while '\n\n\n\n' in text:
         text = text.replace('\n\n\n\n', '\n\n')
