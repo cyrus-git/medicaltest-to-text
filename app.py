@@ -178,7 +178,7 @@ st.write("""ご意見・エラー報告・改善案 等は <a href="https://cyru
 st.write('※ 特にテンプレートの記載内容についてのご意見を募集しております')
 components.html(
     """
-    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="【検査結果 文字起こしツール】" data-url="https://share.streamlit.io/cyrus-git/medicaltest-to-text/main/app.py" data-via="cyrus_twi" data-hashtags="streamlit" data-lang="ja" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="【検査結果 文字起こしツール】" data-url="https://share.streamlit.io/cyrus-git/medicaltest-to-text/main/app.py" data-via="cyrus_twi" data-hashtags="streamlit" data-lang="en" data-show-count="false">Tweet</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     """
 )
 st.text('sponsored link')
