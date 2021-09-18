@@ -35,7 +35,10 @@ def df_to_text(df:DataFrame, separation_letter:str, space1:str, space2:str, dele
         del text_list[-1]
     text = separation_letter.join(text_list)
     text = text.replace(', Seg', ' (Seg').replace('、Seg', ' (Seg')
-    text = text.replace(', \n\n, ', '\n\n').replace('、\n\n、', '\n\n')
+    while ', \n\n, ' in text or '、\n\n、' in text:
+        text = text.replace(', \n\n, ', '\n\n').replace('、\n\n、', '\n\n')
+    while '\n\n, ' in text or '\n\n、' in text:
+        text = text.replace('\n\n, ', '\n\n').replace('\n\n、', '\n\n')
     while '\n\n\n\n' in text:
         text = text.replace('\n\n\n\n', '\n\n')
     return text
